@@ -1,0 +1,196 @@
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - banner [ref=e3]:
+    - link "stoop home" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - generic [ref=e5]: Stoop.
+    - navigation [ref=e6]:
+      - link "map" [ref=e7] [cursor=pointer]:
+        - /url: /map
+      - link "management" [ref=e8] [cursor=pointer]:
+        - /url: /management
+  - generic [ref=e10]:
+    - generic [ref=e23]:
+      - generic:
+        - generic [ref=e25]:
+          - generic:
+            - region "Map"
+        - generic:
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+          - img
+        - generic:
+          - img
+      - generic:
+        - generic [ref=e288]:
+          - button "Zoom in" [ref=e289] [cursor=pointer]: +
+          - button "Zoom out" [ref=e290] [cursor=pointer]: −
+        - generic:
+          - generic [ref=e335]:
+            - generic [ref=e336]: building health
+            - generic [ref=e337]:
+              - generic [ref=e338]:
+                - generic [ref=e341]: excellent
+                - generic [ref=e344]: decent
+                - generic [ref=e347]: mixed
+                - generic [ref=e350]: poor
+              - generic [ref=e351]:
+                - generic [ref=e352]:
+                  - generic [ref=e353]: better
+                  - generic [ref=e354]: ↑
+                - generic [ref=e356]: worse
+            - generic [ref=e360]: not enough data
+          - generic [ref=e308]:
+            - link "Leaflet" [ref=e309] [cursor=pointer]:
+              - /url: https://leafletjs.com
+              - img [ref=e310]
+              - text: Leaflet
+            - text: "|"
+            - link "OpenFreeMap" [ref=e314] [cursor=pointer]:
+              - /url: https://openfreemap.org
+            - link "© OpenMapTiles" [ref=e315] [cursor=pointer]:
+              - /url: https://www.openmaptiles.org/
+            - text: Data from
+            - link "OpenStreetMap" [ref=e316] [cursor=pointer]:
+              - /url: https://www.openstreetmap.org/copyright
+      - button "Reset view" [ref=e318] [cursor=pointer]
+    - textbox "search any nyc address" [ref=e17]: 100 Bedford Ave
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - button "has rent stabilized unit(s)" [ref=e20] [cursor=pointer]
+        - button "high violations" [ref=e21] [cursor=pointer]
+      - generic [ref=e22]: loading…
+    - generic [ref=e361]:
+      - generic [ref=e362]:
+        - generic [ref=e363]: building profile
+        - button "Close" [ref=e365] [cursor=pointer]:
+          - generic [ref=e366]: Close
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - generic [ref=e370]:
+            - heading "100 BEDFORD AVENUE" [level=1] [ref=e371]
+            - generic [ref=e372]:
+              - generic [ref=e373]: Has Rent Stabilized Unit(s)
+              - generic [ref=e374]: Built 1910
+              - generic [ref=e375]: 7 units
+              - generic [ref=e376]: Class C1
+          - generic [ref=e378]:
+            - generic [ref=e379]:
+              - term [ref=e380]: BBL
+              - definition [ref=e381]: "3022900020"
+            - generic [ref=e382]:
+              - term [ref=e383]: ZIP
+              - definition [ref=e384]: "11249"
+            - generic [ref=e385]:
+              - term [ref=e386]: Community District
+              - definition [ref=e387]: CD 301
+            - generic [ref=e388]:
+              - term [ref=e389]: Borough
+              - definition [ref=e390]: Brooklyn
+        - generic [ref=e392]:
+          - paragraph [ref=e393]: Summary
+          - paragraph [ref=e394]: There aren't enough HPD violation records on file to assign a score, which is common for smaller buildings. No evictions are on record for this building.
+        - generic [ref=e395]:
+          - heading "Building Health Score" [level=2] [ref=e396]
+          - generic [ref=e397]:
+            - paragraph [ref=e398]: Not enough data to score this building
+            - paragraph [ref=e399]: This building has no HPD registration on file, which usually means it is small, owner-occupied, or not a tracked multi-unit rental. We don't show a score when we can't reliably reason about it.
+            - paragraph [ref=e400]: 0 open · 0 total on record
+        - generic [ref=e401]:
+          - heading "HPD Violations" [level=2] [ref=e402]
+          - generic [ref=e403]:
+            - generic [ref=e404]:
+              - paragraph [ref=e405]: Open
+              - generic [ref=e406]:
+                - paragraph [ref=e407]: "0"
+                - paragraph [ref=e408]: open violations
+              - generic [ref=e409]:
+                - paragraph [ref=e410]: Breakdown by class
+                - generic [ref=e411]:
+                  - generic [ref=e412]:
+                    - paragraph [ref=e413]: "0"
+                    - paragraph [ref=e414]: Class A
+                  - generic [ref=e415]:
+                    - paragraph [ref=e416]: "0"
+                    - paragraph [ref=e417]: Class B
+                  - generic [ref=e418]:
+                    - paragraph [ref=e419]: "0"
+                    - paragraph [ref=e420]: Class C
+            - generic [ref=e421]:
+              - paragraph [ref=e422]: Closed (historical)
+              - generic [ref=e423]:
+                - paragraph [ref=e424]: "0"
+                - paragraph [ref=e425]: closed violations
+              - generic [ref=e426]:
+                - paragraph [ref=e427]: Breakdown by class
+                - generic [ref=e428]:
+                  - generic [ref=e429]:
+                    - paragraph [ref=e430]: "0"
+                    - paragraph [ref=e431]: Class A
+                  - generic [ref=e432]:
+                    - paragraph [ref=e433]: "0"
+                    - paragraph [ref=e434]: Class B
+                  - generic [ref=e435]:
+                    - paragraph [ref=e436]: "0"
+                    - paragraph [ref=e437]: Class C
+          - paragraph [ref=e438]: No HPD violations on record for this BBL.
+        - generic [ref=e463]:
+          - heading "Evictions" [level=2] [ref=e464]
+          - paragraph [ref=e465]: No eviction records found for this building.
+          - paragraph [ref=e466]: "Source: NYC Marshals' eviction records (executed residential evictions). Absence of records does not guarantee none occurred."
+        - generic [ref=e441]:
+          - heading "311 Complaints" [level=2] [ref=e442]
+          - paragraph [ref=e443]: No 311 complaints on file.
+          - paragraph [ref=e444]: "Source: NYC 311 housing complaints (HPD), live from NYC Open Data."
+        - generic [ref=e467]:
+          - heading "Building Ownership & Management" [level=2] [ref=e468]
+          - generic [ref=e469]:
+            - generic [ref=e470]:
+              - generic [ref=e471]: Owner
+              - generic [ref=e472]: ANDREW DASSARO
+            - generic [ref=e473]:
+              - generic [ref=e474]: Ownership entity
+              - generic [ref=e475]: 100 BEDFORD AVENUE
+            - generic [ref=e476]:
+              - generic [ref=e477]: Managing agent
+              - generic [ref=e479]:
+                - link "100 BEDFORD AVENUE LLC" [ref=e480] [cursor=pointer]:
+                  - /url: /m/100%20BEDFORD%20AVENUE
+                - text: — ANDREW DASSARO (Brooklyn, NY)
+          - generic [ref=e481]: This building appears to be independently owned by ANDREW DASSARO.
+          - paragraph [ref=e482]: Stoop has not linked any other buildings to this management company.
+          - paragraph [ref=e483]: "Last registered with HPD: 9/17/2025."
+          - paragraph [ref=e484]: "Source: NYC HPD building registration records (most recent registration on file). Landlords are required by NYC to file these."
+        - generic [ref=e446]:
+          - heading "Official Records" [level=2] [ref=e447]
+          - paragraph [ref=e448]: These links open official NYC records and third-party sites. Stoop does not control their content.
+          - generic [ref=e449]:
+            - link "HPD Online" [ref=e450] [cursor=pointer]:
+              - /url: https://hpdonline.nyc.gov/hpdonline/
+              - button "HPD Online" [ref=e451]
+            - link "DOB Building Info" [ref=e452] [cursor=pointer]:
+              - /url: https://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?boro=3&block=02290&lot=0020
+              - button "DOB Building Info" [ref=e453]
+            - link "ACRIS" [ref=e454] [cursor=pointer]:
+              - /url: https://a836-acris.nyc.gov/bblsearch/bblsearch.asp?borough=3&block=02290&lot=0020
+              - button "ACRIS" [ref=e455]
+            - link "NYC Finance Property" [ref=e456] [cursor=pointer]:
+              - /url: https://propertyinformationportal.nyc.gov/parcels/parcel/3022900020
+              - button "NYC Finance Property" [ref=e457]
+            - link "StreetEasy Listings" [ref=e458] [cursor=pointer]:
+              - /url: https://streeteasy.com/search?search=100%20BEDFORD%20AVENUE
+              - button "StreetEasy Listings" [ref=e459]
+            - link "Google Maps" [ref=e460] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=100%20BEDFORD%20AVENUE%2C%20Brooklyn%2C%20NY%2C%2011249
+              - button "Google Maps" [ref=e461]
