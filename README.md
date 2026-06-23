@@ -7,6 +7,35 @@ control, crime, permits, seismic retrofit status, transit, and fire incidents �
 
 All data comes from public [DataSF](https://data.sfgov.org) (Socrata) datasets. No paywall.
 
+## Screenshots
+
+### Landing
+
+The editorial landing page — search any SF address to begin.
+
+![Bay Window landing page](frontend/public/Landing.png)
+
+### Neighborhood map
+
+A full-bleed choropleth of all 41 SF neighborhoods, shaded by housing density. Toggle
+rent-stabilized and high-violation overlays, then zoom in for individual buildings.
+
+![City-wide neighborhood density map](frontend/public/map_expanded.png)
+
+### Building dots
+
+Zoomed in, every building is a dot colored by its health bucket — excellent, decent,
+mixed, poor, or not-enough-data.
+
+![Per-building health dots](frontend/public/Detailed.png)
+
+### Building profile
+
+Click any building for its full profile: a 0–100 health score, rent-control flag, and
+tabbed breakdowns of DBI violations, safety, and neighborhood data.
+
+![Building profile side panel](frontend/public/sidebar.png)
+
 ## Stack
 
 - **Frontend** — React 19 + TypeScript + Vite, Tailwind v4, shadcn (Base UI), Leaflet maps
