@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
-import L from "leaflet"
-import "leaflet/dist/leaflet.css"
+import * as maplibregl from "maplibre-gl"
+import { Map as MLMap } from "maplibre-gl"
+import "maplibre-gl/dist/maplibre-gl.css"
 
 interface Props {
   lat: number
@@ -8,45 +9,66 @@ interface Props {
   label?: string
 }
 
-// Small map showing just the searched building (search-first MVP; the
-// full-bleed choropleth is a v2 item).
+// Small MapLibre map showing just the searched building.
 export function MiniMap({ lat, lon, label }: Props) {
   const ref = useRef<HTMLDivElement>(null)
-  const mapRef = useRef<L.Map | null>(null)
+  const mapRef = useRef<MLMap | null>(null)
+  const markerRef = useRef<maplibregl.Marker | null>(null)
 
   useEffect(() => {
     if (!ref.current) return
     if (!mapRef.current) {
-      mapRef.current = L.map(ref.current, {
-        center: [lat, lon],
-        zoom: 16,
-        scrollWheelZoom: false,
-      })
-      L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-        {
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-          maxZoom: 19,
+      mapRef.current = new MLMap({
+        container: ref.current,
+        center: [lon, lat],
+        zoom: 15,
+        scrollZoom: false,
+        attributionControl: { compact: true },
+        style: {
+          version: 8,
+          sources: {
+            basemap: {
+              type: "raster",
+              tiles: [
+                "https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+              ],
+              tileSize: 256,
+              attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            },
+          },
+          layers: [{ id: "basemap", type: "raster", source: "basemap" }],
         },
-      ).addTo(mapRef.current)
+      })
     } else {
-      mapRef.current.setView([lat, lon], 16)
+      mapRef.current.setCenter([lon, lat])
     }
 
-    const marker = L.circleMarker([lat, lon], {
-      radius: 9,
-      color: "oklch(0.49 0.16 250)",
-      fillColor: "oklch(0.49 0.16 250)",
-      fillOpacity: 0.6,
-      weight: 2,
-    }).addTo(mapRef.current)
-    if (label) marker.bindPopup(label)
+    const el = document.createElement("div")
+    el.style.cssText =
+      "width:18px;height:18px;border-radius:9999px;background:oklch(0.49 0.16 250);opacity:0.85;border:2px solid oklch(0.49 0.16 250);"
+    const marker = new maplibregl.Marker({ element: el })
+      .setLngLat([lon, lat])
+      .addTo(mapRef.current)
+    if (label) {
+      marker.setPopup(new maplibregl.Popup({ offset: 12 }).setText(label))
+    }
+    markerRef.current = marker
 
     return () => {
       marker.remove()
+      markerRef.current = null
     }
   }, [lat, lon, label])
+
+  // tear the map down on unmount
+  useEffect(
+    () => () => {
+      mapRef.current?.remove()
+      mapRef.current = null
+    },
+    [],
+  )
 
   return <div ref={ref} className="h-64 w-full rounded-xl border" />
 }

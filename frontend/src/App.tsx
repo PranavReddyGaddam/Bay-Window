@@ -91,16 +91,21 @@ export default function App() {
   // Unified: open a building in the side panel on the map (no page nav).
   // Used by both the search box and clicking a dot. Reflects the selection in
   // the URL (/map?building=…) so a refresh restores it.
-  const openBuilding = useCallback((address: string) => {
-    setView({ kind: "map" })
-    setPanelAddress(address)
-    setSelectedLatLon(null) // cleared until coords arrive from the panel fetch
-    window.history.pushState(
-      {},
-      "",
-      `/map?building=${encodeURIComponent(address)}`,
-    )
-  }, [])
+  // When the caller already knows the coords (dot / 3D-building clicks), pass
+  // them so the map flies immediately instead of waiting on the profile fetch.
+  const openBuilding = useCallback(
+    (address: string, coords?: [number, number]) => {
+      setView({ kind: "map" })
+      setPanelAddress(address)
+      setSelectedLatLon(coords ?? null) // else set when the panel fetch lands
+      window.history.pushState(
+        {},
+        "",
+        `/map?building=${encodeURIComponent(address)}`,
+      )
+    },
+    [],
+  )
 
   function closePanel() {
     setPanelAddress(null)
@@ -124,7 +129,17 @@ export default function App() {
           <BuildingPanel
             address={panelAddress}
             onClose={closePanel}
-            onCoords={(lat, lon) => setSelectedLatLon([lat, lon])}
+            onCoords={(lat, lon) =>
+              // skip if the click already supplied (near-)identical coords —
+              // avoids restarting the fly-to mid-flight
+              setSelectedLatLon((prev) =>
+                prev &&
+                Math.abs(prev[0] - lat) < 1e-6 &&
+                Math.abs(prev[1] - lon) < 1e-6
+                  ? prev
+                  : [lat, lon],
+              )
+            }
           />
         </div>
       </div>

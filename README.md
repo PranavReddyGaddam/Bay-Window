@@ -22,6 +22,10 @@ rent-stabilized and high-violation overlays, then zoom in for individual buildin
 
 ![City-wide neighborhood density map](frontend/public/map_expanded.png)
 
+### 3D buildings
+Toggle "3D buildings" to pitch the same map into a flyover — every building extruded to
+its real height (GlobalBuildingAtlas LoD1), tinted by health bucket where data exists.
+
 ### Building dots
 
 Zoomed in, every building is a dot colored by its health bucket — excellent, decent,
@@ -38,7 +42,8 @@ tabbed breakdowns of DBI violations, safety, and neighborhood data.
 
 ## Stack
 
-- **Frontend** — React 19 + TypeScript + Vite, Tailwind v4, shadcn (Base UI), Leaflet maps
+- **Frontend** — React 19 + TypeScript + Vite, Tailwind v4, shadcn (Base UI), MapLibre GL maps
+- **3D buildings** — 171k SF footprints with heights from [GlobalBuildingAtlas](https://github.com/zhu-xlab/GlobalBuildingAtlas) (LoD1, CC BY-NC 4.0), tiled with tippecanoe into a self-hosted PMTiles archive (`frontend/public/sf-buildings.pmtiles`, ~24 MB)
 - **Backend** — Python FastAPI proxy over the DataSF Socrata API, with an in-memory TTL cache
 - **Geocoding** — hybrid, $0 (SF EAS address points; no paid APIs)
 

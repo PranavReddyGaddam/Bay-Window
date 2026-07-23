@@ -121,6 +121,23 @@
     cursor: pointer;
   }
 
+  /* MapLibre selected-building marker — brand orange pin with white ring. */
+  .selected-marker {
+    width: 22px;
+    height: 22px;
+    border-radius: 9999px;
+    background: #ff4200;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Compact MapLibre tooltip styling to match the app chrome. */
+  .map-tooltip .maplibregl-popup-content {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
   /* Smooth light <-> dark transition. Scoped to color properties so layout
      and transforms stay instant. Respects reduced-motion. */
   body,
